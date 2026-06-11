@@ -56,7 +56,7 @@ export default function CareersPage() {
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-8xl font-bold text-foreground mb-6 tracking-tighter">
+            <h1 className="text-4xl md:text-8xl font-bold text-foreground mb-6 tracking-tighter break-words">
               Build the <span className="text-gradient">Future</span> With Us
             </h1>
             <p className="text-xl text-muted-foreground mb-10 leading-relaxed">

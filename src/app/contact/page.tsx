@@ -124,9 +124,9 @@ export default function ContactPage() {
                     >
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div className="space-y-2">
-                          <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
-                            Full Name *
-                          </label>
+                        <label className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
+                          Full Name *
+                        </label>
                           <input
                             type="text"
                             required
@@ -138,9 +138,9 @@ export default function ContactPage() {
                           />
                         </div>
                         <div className="space-y-2">
-                          <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
-                            Email Address *
-                          </label>
+                        <label className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
+                          Email Address *
+                        </label>
                           <input
                             type="email"
                             required
@@ -154,7 +154,7 @@ export default function ContactPage() {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div className="space-y-2">
-                          <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
+                          <label className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
                             Company
                           </label>
                           <input
@@ -167,7 +167,7 @@ export default function ContactPage() {
                           />
                         </div>
                         <div className="space-y-2">
-                          <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
+                          <label className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
                             Phone
                           </label>
                           <input
@@ -181,7 +181,7 @@ export default function ContactPage() {
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
+                        <label className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
                           Message *
                         </label>
                         <textarea
@@ -237,7 +237,7 @@ export default function ContactPage() {
                       </div>
 
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
+                        <label className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
                           Your Name *
                         </label>
                         <input
@@ -251,7 +251,7 @@ export default function ContactPage() {
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
+                        <label className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
                           Company
                         </label>
                         <input
@@ -264,7 +264,7 @@ export default function ContactPage() {
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
+                        <label className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">
                           Message (optional)
                         </label>
                         <textarea

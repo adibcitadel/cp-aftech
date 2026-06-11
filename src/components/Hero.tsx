@@ -28,7 +28,7 @@ export default function Hero() {
 
           <motion.h1
             initial={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-7xl font-extrabold tracking-tight mb-8"
+            className="text-4xl md:text-7xl font-extrabold tracking-tight mb-8 break-words"
           >
             Create your <span className="text-gradient">Idea</span> Into reality
           </motion.h1>

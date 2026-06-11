@@ -150,7 +150,7 @@ export default function AIAssistant() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[9999]">
+    <div className="fixed bottom-[calc(1.5rem+env(safe-area-inset-bottom))] right-[calc(1.5rem+env(safe-area-inset-right))] z-[9999]">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -158,7 +158,7 @@ export default function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute bottom-20 right-0 w-[360px] sm:w-[400px] h-[520px] rounded-2xl border border-border bg-card shadow-2xl shadow-primary/10 overflow-hidden flex flex-col"
+            className="absolute bottom-20 right-0 w-[calc(100vw-1.5rem)] sm:w-[380px] max-w-[calc(100vw-1.5rem)] h-[520px] rounded-2xl border border-border bg-card shadow-2xl shadow-primary/10 overflow-hidden flex flex-col"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-gradient-to-r from-primary/10 to-secondary/10">
@@ -180,15 +180,15 @@ export default function AIAssistant() {
                 <button
                   onClick={handleNewChat}
                   title="New Chat"
-                  className="w-8 h-8 rounded-lg hover:bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+                  className="w-10 h-10 rounded-lg hover:bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  <Trash2 size={14} />
+                  <Trash2 size={15} />
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="w-8 h-8 rounded-lg hover:bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+                  className="w-10 h-10 rounded-lg hover:bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  <X size={16} />
+                  <X size={18} />
                 </button>
               </div>
             </div>
@@ -259,9 +259,9 @@ export default function AIAssistant() {
                 <button
                   onClick={handleSend}
                   disabled={!input.trim() || loading}
-                  className="w-8 h-8 rounded-lg bg-primary hover:bg-primary/90 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
+                  className="w-11 h-11 rounded-xl bg-primary hover:bg-primary/90 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-colors shrink-0"
                 >
-                  <Send size={14} className="text-background" />
+                  <Send size={16} className="text-background" />
                 </button>
               </div>
             </div>

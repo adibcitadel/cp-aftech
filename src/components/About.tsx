@@ -39,14 +39,14 @@ export default function About() {
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-24">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
             <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-4">Who We Are</h2>
-            <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+            <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-8 break-words">
               Driving Innovation Across the <span className="text-gradient">Archipelago</span>
             </h3>
             <p className="text-muted-foreground mb-8 leading-relaxed">
@@ -86,6 +86,7 @@ export default function About() {
               <img 
                 src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" 
                 alt="Global Tech Infrastructure" 
+                width="600" height="600"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-background via-background/80 to-transparent" />

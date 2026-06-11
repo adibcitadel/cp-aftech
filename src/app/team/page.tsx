@@ -50,7 +50,7 @@ export default function TeamPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
         
         <div className="container mx-auto px-6 relative z-10 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6">
+          <h1 className="text-4xl md:text-7xl font-bold text-foreground mb-6 break-words">
             Meet the <span className="text-primary">Experts</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -72,13 +72,13 @@ export default function TeamPage() {
                   
                   {/* Real Image Integration */}
                   <div className="absolute inset-0 z-20 transition-transform duration-700 group-hover:scale-110">
-                    <img src={member.image} alt={member.name} className="w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500" />
+                    <img src={member.image} alt={member.name} width="400" height="400" className="w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f25] via-transparent to-transparent opacity-90" />
                   </div>
                   
-                  <div className="absolute bottom-4 left-4 right-4 z-20 flex justify-center gap-3 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  <div className="absolute bottom-4 left-4 right-4 z-20 flex justify-center gap-3 opacity-100 md:opacity-0 translate-y-0 md:translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                     {[Globe, MessageCircle, Mail].map((Icon, idx) => (
-                      <a key={idx} href="#" className="w-10 h-10 rounded-full bg-primary/10 backdrop-blur-md border border-border flex items-center justify-center text-foreground hover:bg-primary hover:text-background transition-colors">
+                      <a key={idx} href="#" className="w-11 h-11 rounded-full bg-primary/10 backdrop-blur-md border border-border flex items-center justify-center text-foreground hover:bg-primary hover:text-background transition-colors">
                         <Icon size={16} />
                       </a>
                     ))}

@@ -53,7 +53,7 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold"
+            className="text-4xl md:text-5xl font-bold break-words"
           >
             Trusted by <span className="text-gradient">Industry Leaders</span>
           </motion.h3>

@@ -51,12 +51,12 @@ export default function Solutions() {
             >
               Industry Solutions
             </motion.h2>
-            <motion.h3 
+            <motion.h3
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold text-foreground"
+              className="text-4xl md:text-5xl font-bold text-foreground break-words"
             >
               Tailored Technology for Every <span className="text-gradient">Sector</span>
             </motion.h3>

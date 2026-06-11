@@ -27,20 +27,20 @@ export default function Footer() {
             {/* Addresses */}
             <div className="space-y-6">
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-[0.2em]">
+                <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-[0.2em]">
                   <Building2 size={14} /> HEADQUARTERS
                 </div>
-                <p className="text-muted-foreground text-[11px] leading-relaxed pl-6">
+                <p className="text-muted-foreground text-xs leading-relaxed pl-6">
                   Jl. Lingkar Timur 23, Karangkandri, Kesugihan ,<br />
                   Cilacap , Jawa Tengah 53274, Indonesia
                 </p>
               </div>
 
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-secondary font-bold text-[10px] uppercase tracking-[0.2em]">
+                <div className="flex items-center gap-2 text-secondary font-bold text-xs uppercase tracking-[0.2em]">
                   <Building2 size={14} /> JAKARTA BRANCH
                 </div>
-                <p className="text-muted-foreground text-[11px] leading-relaxed pl-6">
+                <p className="text-muted-foreground text-xs leading-relaxed pl-6">
                   Gedung AFTECH , Jalan Mega Kuningan,<br />
                   Setiabudi, Jakarta Selatan, 12950, Indonesia
                 </p>
@@ -54,7 +54,7 @@ export default function Footer() {
                   <MessageCircle size={18} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">WHATSAPP / MOBILE</span>
+                  <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">WHATSAPP / MOBILE</span>
                   <span className="text-foreground text-xs font-bold">+62 822 3183 4977</span>
                 </div>
               </a>
@@ -64,7 +64,7 @@ export default function Footer() {
                   <PhoneCall size={18} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">OFFICE LANDLINE</span>
+                  <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">OFFICE LANDLINE</span>
                   <span className="text-foreground text-xs font-bold">+62 822 3183 4977</span>
                 </div>
               </a>
@@ -74,7 +74,7 @@ export default function Footer() {
                   <Mail size={18} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">EMAIL INQUIRIES</span>
+                  <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">EMAIL INQUIRIES</span>
                   <span className="text-foreground text-xs font-bold">sales@aftech.co.id</span>
                 </div>
               </a>
@@ -247,17 +247,17 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-12 border-t dark:border-white/5 border-black/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-muted-foreground text-[10px] uppercase tracking-[0.2em] font-bold">
+          <p className="text-muted-foreground text-[11px] uppercase tracking-[0.2em] font-bold">
             © 2026 PT AFTECH DAYA SOLUSINDO. ALL RIGHTS RESERVED.
           </p>
-          <div className="flex gap-8">
-            <Link href="/privacy" className="text-muted-foreground hover:text-foreground text-[10px] font-bold uppercase tracking-widest transition-colors">
+          <div className="flex gap-6 flex-wrap justify-center">
+            <Link href="/privacy" className="text-muted-foreground hover:text-foreground text-xs font-bold uppercase tracking-widest transition-colors py-1">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-muted-foreground hover:text-foreground text-[10px] font-bold uppercase tracking-widest transition-colors">
+            <Link href="/terms" className="text-muted-foreground hover:text-foreground text-xs font-bold uppercase tracking-widest transition-colors py-1">
               Terms of Service
             </Link>
-            <Link href="/cookies" className="text-muted-foreground hover:text-foreground text-[10px] font-bold uppercase tracking-widest transition-colors">
+            <Link href="/cookies" className="text-muted-foreground hover:text-foreground text-xs font-bold uppercase tracking-widest transition-colors py-1">
               Cookies
             </Link>
           </div>

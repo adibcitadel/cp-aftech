@@ -58,15 +58,15 @@ export default function Services() {
           >
             Our Expertise
           </motion.h2>
-          <motion.h3 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-foreground mb-6"
-          >
-            Integrated <span className="text-gradient">Technology Portfolio</span>
-          </motion.h3>
+            <motion.h3
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl md:text-5xl font-bold text-foreground break-words"
+            >
+              Integrated Technology <span className="text-gradient">Portfolio</span>
+            </motion.h3>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -114,7 +114,7 @@ export default function Services() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {service.tags.map((tag, j) => (
-                    <span key={j} className="text-[10px] px-2.5 py-1 rounded-full dark:bg-white/5 bg-primary/8 border border-primary/20 text-primary dark:text-muted-foreground font-medium">
+                    <span key={j} className="text-[11px] px-2.5 py-1 rounded-full dark:bg-white/5 bg-primary/8 border border-primary/20 text-primary dark:text-muted-foreground font-medium">
                       {tag}
                     </span>
                   ))}

@@ -91,7 +91,7 @@ export default function ProductDetailClient({
                   <div className="text-xs text-muted-foreground">Enterprise Integration Platform</div>
                 </div>
               )}
-              <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tighter">
+              <h1 className="text-4xl md:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tighter break-words">
                 {title} <span className="text-gradient">Platform</span>
               </h1>
               {hasContent ? (
