@@ -3,16 +3,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Languages } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { menuData } from "@/lib/constants";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useI18n } from "@/i18n/I18nProvider";
-import { Languages } from "lucide-react";
 
 export default function Navbar() {
   const { locale, toggleLocale } = useI18n();
+  const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -102,7 +103,7 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-4">
-          <Link href="/" onMouseEnter={() => setActiveMenu(null)} className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Home</Link>
+          <Link href="/" onMouseEnter={() => setActiveMenu(null)} className={cn("px-4 py-2 text-sm font-medium transition-colors", pathname === "/" ? "text-primary" : "text-muted-foreground hover:text-primary")}>Home</Link>
           
           {Object.keys(menuData).map((menuName) => (
             <div key={menuName} className="relative">
