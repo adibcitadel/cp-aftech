@@ -158,10 +158,10 @@ export default function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute bottom-20 right-0 w-[calc(100vw-1.5rem)] sm:w-[380px] max-w-[calc(100vw-1.5rem)] h-[520px] rounded-2xl border border-border bg-card shadow-2xl shadow-primary/10 overflow-hidden flex flex-col"
+            className="absolute bottom-20 right-0 w-[calc(100vw-1.5rem)] sm:w-[380px] max-w-[calc(100vw-1.5rem)] h-[520px] rounded-2xl border border-border bg-[var(--surface)] shadow-2xl shadow-primary/10 overflow-hidden flex flex-col"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-gradient-to-r from-primary/10 to-secondary/10">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-[var(--surface-raised)]">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                   <Bot size={18} className="text-background" />
@@ -194,7 +194,7 @@ export default function AIAssistant() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-muted/30">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[var(--muted)]">
               {messages.map((msg, i) => (
                 <div
                   key={i}
@@ -219,7 +219,7 @@ export default function AIAssistant() {
                     className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-line ${
                       msg.role === "user"
                         ? "bg-primary text-background rounded-tr-sm"
-                        : "bg-card border border-border text-foreground rounded-tl-sm"
+                        : "bg-[var(--surface-raised)] border border-border text-foreground rounded-tl-sm"
                     }`}
                   >
                     {msg.content}
@@ -231,7 +231,7 @@ export default function AIAssistant() {
                   <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center shrink-0 mt-1">
                     <Bot size={14} className="text-primary" />
                   </div>
-                  <div className="bg-card border border-border text-foreground px-4 py-3 rounded-2xl rounded-tl-sm text-sm">
+                  <div className="bg-[var(--surface-raised)] border border-border text-foreground px-4 py-3 rounded-2xl rounded-tl-sm text-sm">
                     <span className="inline-flex gap-1">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce [animation-delay:0ms]" />
                       <span className="w-1.5 h-1.5 bg-primary/60 rounded-full animate-bounce [animation-delay:150ms]" />
@@ -244,8 +244,8 @@ export default function AIAssistant() {
             </div>
 
             {/* Input */}
-            <div className="p-4 border-t border-border bg-card">
-              <div className="flex items-center gap-2 bg-muted rounded-xl px-4 py-2 border border-border focus-within:border-primary/50 transition-colors">
+            <div className="p-4 border-t border-border bg-[var(--surface)]">
+              <div className="flex items-center gap-2 bg-[var(--surface-raised)] rounded-xl px-4 py-2 border border-border focus-within:border-primary/50 transition-colors">
                 <input
                   ref={inputRef}
                   type="text"
