@@ -158,10 +158,13 @@ export default function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute bottom-20 right-0 w-[calc(100vw-1.5rem)] sm:w-[380px] max-w-[calc(100vw-1.5rem)] h-[520px] rounded-2xl border border-border bg-surface shadow-2xl shadow-primary/10 overflow-hidden flex flex-col"
+            className="absolute bottom-20 right-0 w-[calc(100vw-1.5rem)] sm:w-[380px] max-w-[calc(100vw-1.5rem)] h-[520px] rounded-2xl border border-border shadow-2xl shadow-primary/10 overflow-hidden flex flex-col"
+            style={{ backgroundColor: "var(--surface)" }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-surface-raised">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-border"
+              style={{ backgroundColor: "var(--surface-raised)" }}
+            >
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                   <Bot size={18} className="text-background" />
@@ -194,7 +197,9 @@ export default function AIAssistant() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-surface-raised">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3"
+              style={{ backgroundColor: "var(--surface-raised)" }}
+            >
               {messages.map((msg, i) => (
                 <div
                   key={i}
@@ -219,8 +224,14 @@ export default function AIAssistant() {
                     className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-line ${
                       msg.role === "user"
                         ? "bg-primary text-background rounded-tr-sm"
-                        : "bg-surface border border-border text-foreground rounded-tl-sm"
+                        : "border border-border text-foreground rounded-tl-sm"
                     }`}
+                    style={{
+                      backgroundColor:
+                        msg.role === "user" ? "var(--primary)" : "var(--surface)",
+                      color:
+                        msg.role === "user" ? "var(--background)" : "var(--foreground)",
+                    }}
                   >
                     {msg.content}
                   </div>
@@ -231,7 +242,9 @@ export default function AIAssistant() {
                   <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center shrink-0 mt-1">
                     <Bot size={14} className="text-primary" />
                   </div>
-                  <div className="bg-surface border border-border text-foreground px-4 py-3 rounded-2xl rounded-tl-sm text-sm">
+                  <div className="border border-border text-foreground px-4 py-3 rounded-2xl rounded-tl-sm text-sm"
+                    style={{ backgroundColor: "var(--surface)" }}
+                  >
                     <span className="inline-flex gap-1">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce [animation-delay:0ms]" />
                       <span className="w-1.5 h-1.5 bg-primary/60 rounded-full animate-bounce [animation-delay:150ms]" />
@@ -244,8 +257,12 @@ export default function AIAssistant() {
             </div>
 
             {/* Input */}
-            <div className="p-4 border-t border-border bg-surface">
-              <div className="flex items-center gap-2 bg-surface-raised rounded-xl px-4 py-2 border border-border focus-within:border-primary/50 transition-colors">
+            <div className="p-4 border-t border-border"
+              style={{ backgroundColor: "var(--surface)" }}
+            >
+              <div className="flex items-center gap-2 rounded-xl px-4 py-2 border border-border focus-within:border-primary/50 transition-colors"
+                style={{ backgroundColor: "var(--surface-raised)" }}
+              >
                 <input
                   ref={inputRef}
                   type="text"
