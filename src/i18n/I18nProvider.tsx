@@ -3,14 +3,12 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
 
 type Locale = "en" | "id";
-type NestedKeyOf<T> = T extends object
-  ? { [K in keyof T]: K extends string ? `${K}${T[K] extends object ? `.${NestedKeyOf<T[K]>}` : ""}` : never }[keyof T]
-  : never;
 
 import { en } from "./en";
 import { id } from "./id";
+import type { TranslationSchema } from "./id";
 
-const translations = { en, id } as const;
+const translations: Record<Locale, TranslationSchema> = { en, id } as const;
 
 interface I18nContextType {
   locale: Locale;
@@ -21,12 +19,12 @@ interface I18nContextType {
 
 const I18nContext = createContext<I18nContextType | null>(null);
 
-function resolvePath(obj: Record<string, unknown>, path: string): string {
+function resolvePath(obj: TranslationSchema, path: string): string {
   const keys = path.split(".");
-  let current: unknown = obj;
+  let current: TranslationSchema | string = obj;
   for (const key of keys) {
     if (current && typeof current === "object" && key in current) {
-      current = (current as Record<string, unknown>)[key];
+      current = (current as TranslationSchema)[key];
     } else {
       return path;
     }
@@ -52,7 +50,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   }, [locale, setLocale]);
 
   const t = useCallback(
-    (path: string): string => resolvePath(translations[locale] as unknown as Record<string, unknown>, path),
+    (path: string): string => resolvePath(translations[locale], path),
     [locale]
   );
 

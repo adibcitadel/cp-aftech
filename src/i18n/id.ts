@@ -1,6 +1,10 @@
 import { en } from "./en";
 
-export const id: typeof en = {
+export type TranslationSchema = {
+  [K: string]: string | TranslationSchema;
+};
+
+export const id: TranslationSchema = {
   nav: {
     home: "Beranda",
     services: "Layanan",

@@ -1,4 +1,6 @@
-export const en = {
+import type { TranslationSchema } from "./id";
+
+export const en: TranslationSchema = {
   nav: {
     home: "Home",
     services: "Services",
