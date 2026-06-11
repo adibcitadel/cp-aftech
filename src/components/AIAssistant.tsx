@@ -18,16 +18,22 @@ interface Message {
 }
 
 const STORAGE_KEY = "aftech-chat-history";
+const STORAGE_VERSION = 2;
 
 const INITIAL_MESSAGE: Message = {
   role: "assistant",
-  content:
-    "Halo! Saya asisten AI AFTECH. Ada yang bisa saya bantu?\n\nKetik **produk** untuk info produk, **layanan** untuk info layanan, **kontak** untuk info kontak, atau **RPMS** untuk info RPMS Aftech.",
+  content: "Halo! Saya asisten AI AFTECH. Ada yang bisa saya bantu?",
 };
 
 function loadMessages(): Message[] {
   if (typeof window === "undefined") return [INITIAL_MESSAGE];
   try {
+    const ver = localStorage.getItem("aftech-chat-version");
+    if (ver !== String(STORAGE_VERSION)) {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.setItem("aftech-chat-version", String(STORAGE_VERSION));
+      return [INITIAL_MESSAGE];
+    }
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       const parsed = JSON.parse(saved);
