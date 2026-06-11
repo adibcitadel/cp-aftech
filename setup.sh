@@ -1,7 +1,7 @@
 #!/bin/bash
-echo "Create .env.local with:"
-echo "GROQ_API_KEY=<your-groq-api-key>"
-echo "NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX"
+# Run this after git pull to set up your local environment
+echo "Run this command to create .env.local with your API key:"
 echo ""
-echo "GitHub blocked pushing the real key for security."
-echo "The Groq API key was shared in our chat conversation."
+echo 'echo "GROQ_API_KEY=<your-key>" > .env.local'
+echo ""
+echo "Then: npm run dev"
