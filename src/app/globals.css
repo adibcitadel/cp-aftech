@@ -1,26 +1,203 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  :root {
+    /* === LIGHT MODE: Enterprise Tech === */
+    --background: #f4f7fb;           /* Soft blue-gray page canvas */
+    --surface: #ffffff;              /* White card/component surfaces */
+    --surface-raised: #eef2f8;       /* Slightly darker surface for contrast */
+    --foreground: #0d1526;           /* Near-black for strong readability */
+    --muted: #e8edf5;                /* Subtle section backgrounds */
+    --muted-foreground: #5a6b8a;     /* Muted body text — readable gray-blue */
+    --border: #d4dce9;               /* Crisp, visible borders */
+    --primary: #1d4ed8;              /* Deep, confident corporate blue */
+    --primary-foreground: #ffffff;
+    --primary-glow: rgba(29, 78, 216, 0.12);
+    --secondary: #0891b2;            /* Teal-cyan accent */
+    --secondary-foreground: #ffffff;
+    --accent: #059669;               /* Emerald success accent */
+    --card: #ffffff;
+    --card-border: #d4dce9;
+    --glass-bg: rgba(255, 255, 255, 0.92);
+    --glass-border: rgba(180, 200, 230, 0.6);
+    --shadow-sm: 0 1px 3px rgba(0, 60, 150, 0.06), 0 1px 2px rgba(0, 60, 150, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 60, 150, 0.08), 0 2px 6px rgba(0, 60, 150, 0.05);
+    --shadow-lg: 0 12px 40px rgba(0, 60, 150, 0.12), 0 4px 12px rgba(0, 60, 150, 0.06);
+  }
+
+  .dark {
+    --background: #000511;
+    --surface: #0a0f1e;
+    --surface-raised: #0f172a;
+    --foreground: #f0f6fc;
+    --muted: #0f172a;
+    --muted-foreground: #94a3b8;
+    --border: #1e293b;
+    --primary: #2563eb;
+    --primary-foreground: #ffffff;
+    --primary-glow: rgba(37, 99, 235, 0.3);
+    --secondary: #06b6d4;
+    --secondary-foreground: #ffffff;
+    --accent: #10b981;
+    --card: rgba(10, 15, 30, 0.6);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(15, 23, 42, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.6);
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-gradient-shift: gradient-shift 8s ease infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md);
+}
+
+.glass-morphism {
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Light mode: cards use opaque white surface + shadow */
+:root .glass,
+:root .glass-morphism {
+  box-shadow: var(--shadow-md);
+}
+
+/* Card surface utility */
+.card-surface {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Section surface (alternating sections in light) */
+.section-surface {
+  background: var(--muted);
+}
+
+/* Eye-Catching Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #2563eb, #06b6d4, #8b5cf6, #2563eb);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.dark .text-gradient {
+  background: linear-gradient(135deg, #3b82f6, #2dd4bf, #a855f7, #3b82f6);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Vibrant Mesh Background */
+.bg-mesh {
+  background-color: var(--background);
+  background-image: 
+    radial-gradient(at 40% 20%, rgba(37, 99, 235, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+}
+
+.dark .bg-mesh {
+  background-image: 
+    radial-gradient(at 40% 20%, rgba(37, 99, 235, 0.25) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(139, 92, 246, 0.25) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(6, 182, 212, 0.25) 0px, transparent 50%);
+}
+
+/* Tech Grid Background */
+.bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(29, 78, 216, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(29, 78, 216, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+
+.dark .bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(37, 99, 235, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
 }
