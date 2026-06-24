@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ChevronRight, Shield, Cpu, Cloud, Globe } from "lucide-react";
 import Link from "next/link";
+import { Trans } from "@/i18n/Trans";
 
 export default function Hero() {
   return (
@@ -23,21 +24,21 @@ export default function Hero() {
             className="flex items-center gap-3 mb-6"
           >
             <div className="h-[2px] w-12 bg-primary rounded-full" />
-            <span className="text-primary font-bold tracking-[0.2em] text-xs uppercase">Future-Ready Technology</span>
+            <span className="text-primary font-bold tracking-[0.2em] text-xs uppercase"><Trans>Future-Ready Technology</Trans></span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-7xl font-extrabold tracking-tight mb-8 break-words"
           >
-            Create your <span className="text-gradient">Idea</span> Into reality
+            <Trans>Create your</Trans> <span className="text-gradient"><Trans>Idea</Trans></span> <Trans>Into reality</Trans>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 1, y: 0 }}
             className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl"
           >
-            Empowering innovation through smart technology solutions
+            <Trans>Empowering innovation through smart technology solutions</Trans>
           </motion.p>
 
           <motion.div
@@ -47,11 +48,11 @@ export default function Hero() {
             <Link href="/services/iot" className="relative group px-8 py-4 rounded-full font-bold text-background bg-primary overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(37,99,235,0.4)]">
               <div className="absolute inset-0 bg-gradient-to-r from-primary via-purple-500 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative flex items-center justify-center gap-2">
-                Explore Our Solutions <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                <Trans>Explore Our Solutions</Trans> <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
             <Link href="/about" className="px-8 py-4 rounded-full font-bold border border-border bg-surface-raised backdrop-blur-md transition-all hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary/50 flex items-center justify-center hover:scale-105 active:scale-95">
-              Learn More
+              <Trans>Learn More</Trans>
             </Link>
           </motion.div>
 
@@ -72,7 +73,7 @@ export default function Hero() {
                 <div className="w-12 h-12 rounded-lg bg-surface-raised border border-border flex items-center justify-center text-primary group hover:bg-primary/10 hover:border-primary/30 transition-all cursor-default">
                   <item.icon size={24} />
                 </div>
-                <span className="text-sm font-medium text-muted-foreground">{item.label}</span>
+                <span className="text-sm font-medium text-muted-foreground"><Trans>{item.label}</Trans></span>
               </div>
             ))}
           </motion.div>

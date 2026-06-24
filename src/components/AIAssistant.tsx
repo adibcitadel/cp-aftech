@@ -51,16 +51,12 @@ function saveMessages(messages: Message[]) {
 
 export default function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>(loadMessages);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const accumulatedRef = useRef("");
-
-  useEffect(() => {
-    setMessages(loadMessages());
-  }, []);
 
   useEffect(() => {
     if (messages.length > 0) saveMessages(messages);
@@ -92,7 +88,6 @@ export default function AIAssistant() {
     setMessages(updated);
     setLoading(true);
 
-    const placeholderIdx = updated.length;
     accumulatedRef.current = "";
 
     try {

@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Target, Eye, TrendingUp, Award, Users, Rocket } from "lucide-react";
+import { Trans } from "@/i18n/Trans";
 
 const phases = [
   {
@@ -10,28 +11,32 @@ const phases = [
     subtitle: "Infrastructure Foundation",
     description: "Expand enterprise networking solutions and improve cloud architecture.",
     icon: Rocket,
-    status: "Completed"
+    status: "Completed",
+    statusKey: "phase1Status"
   },
   {
     title: "Phase 2",
     subtitle: "Smart Automation",
     description: "AI monitoring systems and predictive maintenance integration.",
     icon: Target,
-    status: "In Progress"
+    status: "In Progress",
+    statusKey: "phase2Status"
   },
   {
     title: "Phase 3",
     subtitle: "Ecosystem Expansion",
     description: "ERP integrations and SaaS platform expansion.",
     icon: TrendingUp,
-    status: "Upcoming"
+    status: "Upcoming",
+    statusKey: "phase3Status"
   },
   {
     title: "Phase 4",
     subtitle: "Regional Scale",
     description: "Southeast Asia expansion and managed cloud services.",
     icon: Eye,
-    status: "Future"
+    status: "Future",
+    statusKey: "phase4Status"
   }
 ];
 
@@ -45,12 +50,12 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-4">Who We Are</h2>
+            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-4"><Trans>Who We Are</Trans></h2>
             <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-8 break-words">
-              Driving Innovation Across the <span className="text-gradient">Archipelago</span>
+              <Trans>Driving Innovation Across the</Trans> <span className="text-gradient"><Trans>Archipelago</Trans></span>
             </h3>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              AFTECH is a strategic technology partner for enterprises, government institutions, and financial services in Indonesia. We combine infrastructure expertise with cutting-edge software engineering to build future-ready digital ecosystems.
+              <Trans>AFTECH is a strategic technology partner for enterprises, government institutions, and financial services in Indonesia. We combine infrastructure expertise with cutting-edge software engineering to build future-ready digital ecosystems.</Trans>
             </p>
             
             <div className="space-y-6">
@@ -59,8 +64,8 @@ export default function About() {
                   <Target size={24} />
                 </div>
                 <div>
-                  <h4 className="text-foreground font-bold text-lg mb-1">Our Vision</h4>
-                  <p className="text-muted-foreground text-sm italic">"To become a trusted and world-class digital technology provider that accelerates Indonesia’s digital transformation ecosystem."</p>
+                  <h4 className="text-foreground font-bold text-lg mb-1"><Trans>Our Vision</Trans></h4>
+                  <p className="text-muted-foreground text-sm italic"><Trans>To become a trusted and world-class digital technology provider that accelerates Indonesia's digital transformation ecosystem.</Trans></p>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -68,8 +73,8 @@ export default function About() {
                   <Award size={24} />
                 </div>
                 <div>
-                  <h4 className="text-foreground font-bold text-lg mb-1">Our Mission</h4>
-                  <p className="text-muted-foreground text-sm">Deliver reliable IT infrastructure, enable secure digital ecosystems, and build innovative technology products for Indonesian businesses.</p>
+                  <h4 className="text-foreground font-bold text-lg mb-1"><Trans>Our Mission</Trans></h4>
+                  <p className="text-muted-foreground text-sm"><Trans>Deliver reliable IT infrastructure, enable secure digital ecosystems, and build innovative technology products for Indonesian businesses.</Trans></p>
                 </div>
               </div>
             </div>
@@ -100,7 +105,7 @@ export default function About() {
                     ].map((s, i) => (
                       <div key={i} className="p-6 rounded-2xl text-center group-hover:scale-105 transition-transform duration-500 border border-border" style={{background:'var(--glass-bg)', boxShadow:'var(--shadow-sm)'}}>
                         <div className="text-3xl font-bold text-primary mb-1">{s.val}</div>
-                        <div className="text-xs text-muted-foreground uppercase tracking-widest">{s.label}</div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-widest"><Trans>{s.label}</Trans></div>
                       </div>
                     ))}
                  </div>
@@ -112,7 +117,7 @@ export default function About() {
         {/* Roadmap */}
         <div>
           <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-foreground mb-4">Strategic Roadmap</h3>
+            <h3 className="text-3xl font-bold text-foreground mb-4"><Trans>Strategic Roadmap</Trans></h3>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
           </div>
 
@@ -128,13 +133,13 @@ export default function About() {
                 style={{background:'var(--card)', boxShadow:'var(--shadow-sm)'}}
               >
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-primary text-background text-[10px] font-bold uppercase tracking-widest shadow-lg">
-                  {phase.status}
+                  <Trans>{phase.status}</Trans>
                 </div>
                 <div className="w-16 h-16 rounded-2xl dark:bg-white/5 bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6 group-hover:rotate-12 transition-transform duration-300">
                   <phase.icon size={32} />
                 </div>
-                <h4 className="text-foreground font-bold mb-2">{phase.subtitle}</h4>
-                <p className="text-muted-foreground text-xs leading-relaxed">{phase.description}</p>
+                <h4 className="text-foreground font-bold mb-2"><Trans>{phase.subtitle}</Trans></h4>
+                <p className="text-muted-foreground text-xs leading-relaxed"><Trans>{phase.description}</Trans></p>
                 {i < 3 && (
                   <div className="hidden md:block absolute top-1/2 -right-4 translate-y-1/2 w-8 border-t border-dashed dark:border-white/20 border-black/20" />
                 )}
