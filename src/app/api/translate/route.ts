@@ -1,4 +1,3 @@
-const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const GROQ_BASE_URL = "https://api.groq.com/openai/v1/chat/completions";
 const GROQ_MODEL = "llama-3.3-70b-versatile";
 
@@ -14,7 +13,7 @@ export async function POST(request: Request) {
       return Response.json({ error: "Missing text or targetLang" }, { status: 400 });
     }
 
-    if (!GROQ_API_KEY) {
+    if (!process.env.GROQ_API_KEY) {
       return Response.json({ translated: text });
     }
 
@@ -35,7 +34,7 @@ Rules:
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${GROQ_API_KEY}`,
+        Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
       },
       body: JSON.stringify({
         model: GROQ_MODEL,

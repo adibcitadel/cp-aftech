@@ -1,4 +1,3 @@
-const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const GROQ_BASE_URL = "https://api.groq.com/openai/v1/chat/completions";
 const GROQ_MODEL = "llama-3.3-70b-versatile";
 
@@ -203,7 +202,7 @@ async function streamGroq(
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${GROQ_API_KEY}`,
+      Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
     },
     body: JSON.stringify({
       model: GROQ_MODEL,
@@ -268,7 +267,7 @@ export async function POST(request: Request) {
     const stream = new ReadableStream({
       async start(controller) {
         try {
-          if (GROQ_API_KEY) {
+          if (process.env.GROQ_API_KEY) {
             await streamGroq(controller, messages);
           } else {
             await streamFallback(controller, getFallbackResponse(userMessage));
